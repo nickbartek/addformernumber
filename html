@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wpisz liczbę</title>
+</head>
+<body>
+
+    <label for="numberInput">Wpisz liczbę:</label>
+    <input type="number" id="numberInput">
+
+    <button onclick="zapiszLiczbe()">Zapisz liczbę</button>
+
+    <p>Wpisana liczba: <span id="displayNumber">Brak</span></p>
+
+    <script>
+        let zmiennaLiczbowa;
+
+        function zapiszLiczbe() {
+            const inputElement = document.getElementById('numberInput');
+            const displayElement = document.getElementById('displayNumber');
+
+            // Pobieramy wartość z pola tekstowego
+            const wpisanaLiczba = parseFloat(inputElement.value);
+
+            // Sprawdzamy, czy wartość jest liczbą
+            if (!isNaN(wpisanaLiczba)) {
+                zmiennaLiczbowa = wpisanaLiczba;
+                displayElement.textContent = zmiennaLiczbowa;
+            } else {
+                alert('Wprowadź poprawną liczbę!');
+            }
+        }
+    </script>
+
+</body>
+</html>
