@@ -1,9 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wpisz liczbę</title>
+    <title>Zapisywanie zmiennych w tablicy</title>
 </head>
 <body>
 
@@ -12,25 +10,28 @@
 
     <button onclick="zapiszLiczbe()">Zapisz liczbę</button>
 
-    <p>Wpisana liczba: <span id="displayNumber">Brak</span></p>
+    <p>Wprowadzone liczby: <span id="displayNumbers">Brak</span></p>
 
     <script>
-        let zmiennaLiczbowa;
+        let liczby = [];
 
         function zapiszLiczbe() {
             const inputElement = document.getElementById('numberInput');
-            const displayElement = document.getElementById('displayNumber');
+            const displayElement = document.getElementById('displayNumbers');
 
             // Pobieramy wartość z pola tekstowego
             const wpisanaLiczba = parseFloat(inputElement.value);
 
             // Sprawdzamy, czy wartość jest liczbą
             if (!isNaN(wpisanaLiczba)) {
-                zmiennaLiczbowa = wpisanaLiczba;
-                displayElement.textContent = zmiennaLiczbowa;
+                liczby.push(wpisanaLiczba);
+                displayElement.textContent = liczby.join(', ');
             } else {
                 alert('Wprowadź poprawną liczbę!');
             }
+
+            // Czyszczenie pola tekstowego po dodaniu liczby
+            inputElement.value = 'wprowadz nastepną liczbe';
         }
     </script>
 
