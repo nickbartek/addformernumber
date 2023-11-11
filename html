@@ -12,6 +12,7 @@
     <input type="number" id="userInput2" placeholder="Wpisz drugą liczbę">
     <button onclick="dodajLiczby()">Dodaj</button>
     <p id="result">Wynik dodawania: <span id="additionResult">Brak</span></p>
+    <p id="result">Wynik dodawania: <span id="additionResult">Brak</span></p>
 
     <script>
         arr=[]
@@ -37,7 +38,12 @@
 
         // Generowanie liczby przy załadowaniu strony
         for(var i=1; i<10; i++){
-        generujLiczbe();}
+            //generujLiczbe();
+        
+            setTimeout(generujLiczbe,1000)
+            setInterval(generujLiczbe,500)
+    
+    }
     </script>
 
 </body>
