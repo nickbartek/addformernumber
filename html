@@ -1,38 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Zapisywanie zmiennych w tablicy</title>
+    <title>Generowanie i Dodawanie Liczb</title>
 </head>
 <body>
 
-    <label for="numberInput">Wpisz liczbę:</label>
-    <input type="number" id="numberInput">
-
-    <button onclick="zapiszLiczbe()">Zapisz liczbę</button>
-
-    <p>Wprowadzone liczby: <span id="displayNumbers">Brak</span></p>
+    <p id="generatedNumber">Wygenerowana liczba: <span id="randomNumber">Brak</span></p>
+    <input type="number" id="userInput1" placeholder="Wpisz pierwszą liczbę">
+    <input type="number" id="userInput2" placeholder="Wpisz drugą liczbę">
+    <button onclick="dodajLiczby()">Dodaj</button>
+    <p id="result">Wynik dodawania: <span id="additionResult">Brak</span></p>
 
     <script>
-        let liczby = [];
-
-        function zapiszLiczbe() {
-            const inputElement = document.getElementById('numberInput');
-            const displayElement = document.getElementById('displayNumbers');
-
-            // Pobieramy wartość z pola tekstowego
-            const wpisanaLiczba = parseFloat(inputElement.value);
-
-            // Sprawdzamy, czy wartość jest liczbą
-            if (!isNaN(wpisanaLiczba)) {
-                liczby.push(wpisanaLiczba);
-                displayElement.textContent = liczby.join(', ');
-            } else {
-                alert('Wprowadź poprawną liczbę!');
-            }
-
-            // Czyszczenie pola tekstowego po dodaniu liczby
-            inputElement.value = 'wprowadz nastepną liczbe';
+        arr=[]
+        function generujLiczbe() {
+            
+            const wygenerowanaLiczba = Math.floor(Math.random() * 100) + 1;
+            arr.push(wygenerowanaLiczba)
+            document.getElementById('randomNumber').textContent = arr;
         }
+
+        function dodajLiczby() {
+            const userInput1 = parseFloat(document.getElementById('userInput1').value);
+            const userInput2 = parseFloat(document.getElementById('userInput2').value);
+
+            if (!isNaN(userInput1) && !isNaN(userInput2)) {
+                const wynikDodawania = userInput1 + userInput2;
+                document.getElementById('additionResult').textContent = wynikDodawania;
+            } else {
+                alert('Wprowadź poprawne liczby!');
+                
+            }
+        }
+
+        // Generowanie liczby przy załadowaniu strony
+        for(var i=1; i<10; i++){
+        generujLiczbe();}
     </script>
 
 </body>
