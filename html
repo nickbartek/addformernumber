@@ -15,15 +15,25 @@
     <p id="result1">Wynik dodawania: <span id="additionResult1">Brak</span></p>
 
     <script>
-        arr=[];
+        arr=[10,8,9];
         var userInput1;
-        var wynik
+        var wynik,i;
+
+        function wyswietlwynik(){
+             document.getElementById('additionResult1').textContent = wynik+'wynik';
+        }
 
         function generujLiczbe() {
-            
+            for(var j=0; j<10; j++){
             const wygenerowanaLiczba = Math.floor(Math.random() * 100) + 1;
             arr.push(wygenerowanaLiczba)
+            wynik=arr[j]+arr[j+1];
+            document.getElementById('additionResult1').textContent = wynik+'      wynik '
             document.getElementById('randomNumber').textContent = arr;
+            
+            sleep(1000);
+            //setTimeout(wyswietlwynik,500)
+        }
         }
 
         function dodajLiczby() {
@@ -37,20 +47,19 @@
                 alert('Wprowadź poprawne liczby!');
                 
             }
+
+
         }
 
         // Generowanie liczby przy załadowaniu strony
-        for(var i=1; i<10; i++){
+        //for( i=1; i<10; i++){
             generujLiczbe();
         
-            setTimeout(generujLiczbe,1000)
-            setInterval(generujLiczbe,500)
-    
-            wynik=arr[1]+arr[2]
-            document.getElementById('additionResult1').textContent = wynik;
+            //setTimeout(generujLiczbe,2000)
+            //setInterval(generujLiczbe,2500)      
     
     
-        }
+        //}
 
     </script>
 
