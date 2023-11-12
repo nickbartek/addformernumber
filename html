@@ -12,10 +12,13 @@
     <input type="number" id="userInput2" placeholder="Wpisz drugą liczbę">
     <button onclick="dodajLiczby()">Dodaj</button>
     <p id="result">Wynik dodawania: <span id="additionResult">Brak</span></p>
-    <p id="result">Wynik dodawania: <span id="additionResult">Brak</span></p>
+    <p id="result1">Wynik dodawania: <span id="additionResult1">Brak</span></p>
 
     <script>
-        arr=[]
+        arr=[];
+        var userInput1;
+        var wynik
+
         function generujLiczbe() {
             
             const wygenerowanaLiczba = Math.floor(Math.random() * 100) + 1;
@@ -24,7 +27,7 @@
         }
 
         function dodajLiczby() {
-            const userInput1 = parseFloat(document.getElementById('userInput1').value);
+            userInput1 = parseFloat(document.getElementById('userInput1').value);
             const userInput2 = parseFloat(document.getElementById('userInput2').value);
 
             if (!isNaN(userInput1) && !isNaN(userInput2)) {
@@ -38,12 +41,17 @@
 
         // Generowanie liczby przy załadowaniu strony
         for(var i=1; i<10; i++){
-            //generujLiczbe();
+            generujLiczbe();
         
             setTimeout(generujLiczbe,1000)
             setInterval(generujLiczbe,500)
     
-    }
+            wynik=arr[1]+arr[2]
+            document.getElementById('additionResult1').textContent = wynik;
+    
+    
+        }
+
     </script>
 
 </body>
