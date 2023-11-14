@@ -3,53 +3,56 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Generowanie i Dodawanie Liczb</title>
+    <title>Wprowadź liczbę</title>
 </head>
 <body>
 
-    <p id="generatedNumber">Wygenerowana liczba: <span id="randomNumber">Brak</span></p>
-    <input type="number" id="userInput1" placeholder="Wpisz pierwszą liczbę">
-    <input type="number" id="userInput2" placeholder="Wpisz drugą liczbę">
-    <button onclick="dodajLiczby()">Dodaj</button>
-    <p id="result">Wynik dodawania: <span id="additionResult">Brak</span></p>
-    <p id="result1">Wynik dodawania: <span id="additionResult1">Brak</span></p>
+    <label for="numberInput">Wpisz liczbę:</label>
+    <input type="number" id="numberInput" onkeydown="checkEnter(event)">
+
+    <p>Wprowadzona liczba: <span id="displayNumber">Brak</span></p>
+    <p>wygenerowane liczby<span id="wygenerowane">Brak</span></p>
 
     <script>
-        arr=[10,8,9];
-        var userInput1;
-        var wynik,i;
-
-        function wyswietlwynik(){
-             document.getElementById('additionResult1').textContent = wynik+'wynik';
+        var displayarray
+        arr=[9,8,0]
+        function checkEnter(event) {
+            if (event.key === 'Enter') {
+                zapiszLiczbe();
+                // Zapobieganie domyślnej akcji (przesłanie formularza)
+                event.preventDefault();
+            }
         }
 
-        function generujLiczbe() {
-           // for(var j=0; j<3; j++){
-            const wygenerowanaLiczba = Math.floor(Math.random() * 100) + 1;
-            arr.unshift(wygenerowanaLiczba)
-            wynik=arr[0]+arr[1];
-            document.getElementById('additionResult1').textContent = wynik+'      wynik '
-            document.getElementById('randomNumber').textContent = arr;
+        function zapiszLiczbe() {
+            var wygenerowanaliczba=Math.floor(Math.random()*10);
+            arr.unshift(wygenerowanaliczba)
             
             
-            //setTimeout(wyswietlwynik,500)
-        
+            const inputElement = document.getElementById('numberInput');
+            const displayElement = document.getElementById('displayNumber');
+            displayarray = document.getElementById('wygenerowane').textContent=arr;
+            //displayarray=arr
+            //document.getElementById('displayNumbers').textContent = zapisaneLiczby
+            // Pobieramy wartość z pola tekstowego
+            const wpisanaLiczba = parseFloat(inputElement.value);
+            
+            var wynik=arr[0]+arr[1];
+            if(wpisanaLiczba===wynik){
+                alert('correct')
+            }
+            
+            
+            // Sprawdzamy, czy wartość jest liczbą
+            if (!isNaN(wpisanaLiczba)) {
+                displayElement.textContent = wpisanaLiczba;
+            } else {
+                alert('Wprowadź poprawną liczbę!');
+            }
+
+            // Czyszczenie pola tekstowego po dodaniu liczby
+            inputElement.value = '';
         }
-
-       //
-
-    
-
-        // Generowanie liczby przy załadowaniu strony
-        //for( i=1; i<10; i++){
-            //generujLiczbe();
-        
-            //setTimeout(generujLiczbe,2000)
-            setInterval(generujLiczbe,1500)      
-    
-    
-        //}
-
     </script>
 
 </body>
