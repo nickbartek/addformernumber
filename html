@@ -24,39 +24,28 @@
         }
 
         function generujLiczbe() {
-            for(var j=0; j<10; j++){
+           // for(var j=0; j<3; j++){
             const wygenerowanaLiczba = Math.floor(Math.random() * 100) + 1;
-            arr.push(wygenerowanaLiczba)
-            wynik=arr[j]+arr[j+1];
+            arr.unshift(wygenerowanaLiczba)
+            wynik=arr[0]+arr[1];
             document.getElementById('additionResult1').textContent = wynik+'      wynik '
             document.getElementById('randomNumber').textContent = arr;
             
-            sleep(1000);
+            
             //setTimeout(wyswietlwynik,500)
+        
         }
-        }
 
-        function dodajLiczby() {
-            userInput1 = parseFloat(document.getElementById('userInput1').value);
-            const userInput2 = parseFloat(document.getElementById('userInput2').value);
+       //
 
-            if (!isNaN(userInput1) && !isNaN(userInput2)) {
-                const wynikDodawania = userInput1 + userInput2;
-                document.getElementById('additionResult').textContent = wynikDodawania;
-            } else {
-                alert('Wprowadź poprawne liczby!');
-                
-            }
-
-
-        }
+    
 
         // Generowanie liczby przy załadowaniu strony
         //for( i=1; i<10; i++){
-            generujLiczbe();
+            //generujLiczbe();
         
             //setTimeout(generujLiczbe,2000)
-            //setInterval(generujLiczbe,2500)      
+            setInterval(generujLiczbe,1500)      
     
     
         //}
