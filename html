@@ -10,7 +10,10 @@
     <label for="numberInput">Wpisz liczbę:</label>
     <input type="number" id="numberInput" onkeydown="checkEnter(event)">
 
+
     <p>Wprowadzona liczba: <span id="displayNumber">Brak</span></p>
+    
+    <p>wygenerowana liczba: <span id="generowana">Brak</span></p>
     <p>wygenerowane liczby<span id="wygenerowane">Brak</span></p>
 
     <script>
@@ -33,11 +36,11 @@
             const inputElement = document.getElementById('numberInput');
             const displayElement = document.getElementById('displayNumber');
             displayarray = document.getElementById('wygenerowane').textContent=arr;
-            
+
             // Pobieramy wartość z pola tekstowego
             const wpisanaLiczba = parseFloat(inputElement.value);
             
-            var wynik=arr[0]+arr[1];
+            var wynik=arr[1]+arr[2];
             if(wpisanaLiczba===wynik){
                 alert('correct')
             }
@@ -51,7 +54,7 @@
             }
 
             // Czyszczenie pola tekstowego po dodaniu liczby
-            inputElement.value = 'wprowadx liczbe';
+            inputElement.value = '';
         }
     </script>
 
