@@ -25,6 +25,7 @@
         }
 
         function zapiszLiczbe() {
+            //generujemy liczbe
             var wygenerowanaliczba=Math.floor(Math.random()*10);
             arr.unshift(wygenerowanaliczba)
             
@@ -32,8 +33,7 @@
             const inputElement = document.getElementById('numberInput');
             const displayElement = document.getElementById('displayNumber');
             displayarray = document.getElementById('wygenerowane').textContent=arr;
-            //displayarray=arr
-            //document.getElementById('displayNumbers').textContent = zapisaneLiczby
+            
             // Pobieramy wartość z pola tekstowego
             const wpisanaLiczba = parseFloat(inputElement.value);
             
@@ -51,7 +51,7 @@
             }
 
             // Czyszczenie pola tekstowego po dodaniu liczby
-            inputElement.value = '';
+            inputElement.value = 'wprowadx liczbe';
         }
     </script>
 
