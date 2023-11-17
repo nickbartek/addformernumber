@@ -3,10 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
     <title>Wprowadź liczbę</title>
 </head>
 <body>
-
+<div>
     <label for="numberInput">Wpisz liczbę:</label>
     <input type="number" id="numberInput" onkeydown="checkEnter(event)">
 
@@ -15,7 +16,7 @@
     
     <p>wygenerowana liczba: <span id="generowana">Brak</span></p>
     <p>wygenerowane liczby<span id="wygenerowane">Brak</span></p>
-
+</div>
     <script>
         var displayarray
         arr=[9,8,0]
