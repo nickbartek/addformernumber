@@ -8,19 +8,28 @@
 </head>
 <body>
 <div>
+
+    
     <label for="numberInput">Wpisz liczbę:</label>
     <input type="number" id="numberInput" onkeydown="checkEnter(event)">
 
 
     <p>Wprowadzona liczba: <span id="displayNumber">Brak</span></p>
-    
-    <p>wygenerowana liczba: <span id="generowana">jeszcze nie ma</span></p>
-    <p>wygenerowana liczby<span id="wygenerowane">Brak</span></p>
+    <p>wygenerowana liczba: <span id="wygenerowane">Brak</span></p>
+
+    <p>wygenerowane liczby: <span id="generowana">jeszcze nie ma</span></p>
+    <button onclick=tablica()>pokaż wszystkie</button>
 </div>
     <script>
         var generowany;
         var displayarray;
+        var wygenerowanaliczba
         arr=[9]
+        wygenerowanaliczba=Math.floor(Math.random()*10);
+        arr.unshift(wygenerowanaliczba)
+        displayarray = document.getElementById('wygenerowane').textContent=wygenerowanaliczba;
+
+
         function checkEnter(event) {
             if (event.key === 'Enter') {
                 zapiszLiczbe();
@@ -30,14 +39,13 @@
         }
 
         function zapiszLiczbe() {
-            //generujemy liczbe
-            var wygenerowanaliczba=Math.floor(Math.random()*10);
+            //generujemy liczbe i zapisujemy na poczatku tablicy
+            wygenerowanaliczba=Math.floor(Math.random()*10);
             arr.unshift(wygenerowanaliczba)
             
             
             const inputElement = document.getElementById('numberInput');
             const displayElement = document.getElementById('displayNumber');
-            //generowany = document.getElementById('generowane').textContent=wygenerowanaliczba;
             displayarray = document.getElementById('wygenerowane').textContent=wygenerowanaliczba;
 
             // Pobieramy wartość z pola tekstowego
@@ -58,6 +66,11 @@
 
             // Czyszczenie pola tekstowego po dodaniu liczby
             inputElement.value = '';
+        }
+
+        function tablica(){
+            alert(arr)
+           document.getElementById('generowana').textContent=arr;
         }
     </script>
 
